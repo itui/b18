@@ -1,0 +1,117 @@
+#%RAML 1.0 
+
+title: online-shopping
+
+version: 1.0
+
+documentation:
+  - !include documentation.raml
+  
+uses:
+  myLib: library.raml
+
+/users:
+  
+  description: This method helps us to retrieve users list
+  
+  get:
+    description: This gets/retrieves users list
+  type:
+    myLib.get-collection:
+      example-reference: 
+        !include examples/usersExample.raml
+  
+  is:
+    myLib.responseMessage
+      
+  /{userid}:
+      get:
+      type:
+        myLib.get-collection:
+          example-reference: 
+            !include examples/user.raml
+
+      is: myLib.responseMessage
+  post:
+
+    responses:
+      201: 
+        body:
+          application/json:
+            example: !include examples/user.raml
+
+    is: myLib.responseMessage
+   
+/products:
+
+  get:
+    
+  type:
+    myLib.get-collection:
+      example-reference: 
+        !include examples/productsExample.raml
+       
+  is: 
+    myLib.responseMessage
+
+  /{productid}:
+    get:
+      
+    type:
+      myLib.get-collection:
+        example-reference: 
+          !include examples/productExample.raml
+    
+    is: myLib.responseMessage
+
+/orders:
+  get:
+   
+  type:
+    myLib.get-collection:
+      example-reference: 
+        !include examples/ordersExample.raml
+  
+  is: myLib.responseMessage  
+  post:
+    responses:
+      201: 
+        body:
+          application/json:
+            example: !include examples/orderExample.raml
+
+  /{orderid}:
+    get:
+      
+    type:
+      myLib.get-collection:
+        example-reference: 
+          !include examples/orderExample.raml
+    
+    is: myLib.responseMessage
+  
+/categories:
+
+  get:
+   
+  type:
+    myLib.get-collection:
+      example-reference: 
+        !include examples/categoriesExample.raml
+    
+  is: myLib.responseMessage
+
+  /{categoryid}:
+    get:
+      
+    type:
+      myLib.get-collection:
+        example-reference: 
+          !include examples/categoryExample.raml
+       
+    is: myLib.responseMessage
+
+    
+
+
+

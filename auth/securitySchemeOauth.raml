@@ -1,0 +1,26 @@
+#%RAML 1.0 SecurityScheme
+type: OAuth 2.0
+description: This API supports oauth 2.0 security method
+describedBy:
+  headers:
+    autorization:
+      description: 
+        users must send given token to access any resource
+      type: string
+  queryParameters:
+    access token:
+      description: users have to send valid token w/ queryparam 
+      type: string
+  responses:
+    401:
+      body:
+        application/json:
+          example:
+            {message: unauthorized access!"}
+    403:
+      description: not allowed to access the resource
+      body:
+        application/json:
+          example:
+            {message: Forbidden!"}
+      

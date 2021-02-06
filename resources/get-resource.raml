@@ -1,0 +1,10 @@
+#%RAML 1.0 ResourceType
+get:
+  description: fetch list of resource <<resourcePathName>>  
+  responses:
+    200: 
+      body:
+        application/json:
+          #type: <<get-resource>>
+          example: <<example-reference>> 
+#is: <<get-trait>>

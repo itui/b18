@@ -1,0 +1,26 @@
+#%RAML 1.0 Library
+usage: To define basic liberaries that are used in this resr api raml specification
+
+types:
+  categories: !include dataTypes/categoryType.raml
+  orders: !include dataTypes/orderType.raml 
+  products: !include dataTypes/productType.raml  
+  users: !include dataTypes/usersType.raml
+
+resourceTypes:
+  get-collection: !include resources/get-resource.raml
+  post-collection: !include resources/post-resource.raml
+
+  mediaType: application/json
+  protocols:
+    - http|s
+annotationTypes:
+  annotations: !include annotation.raml
+  
+securitySchemes:
+  authorize: !include auth/securitySchemeOauth.raml
+
+traits:
+  responseMessage: !include traits/responses.raml
+  special_trait: !include traits/responses.raml
+

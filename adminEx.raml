@@ -1,0 +1,139 @@
+#%RAML 1.0 Extension
+extends: online-shopping.raml
+usage: for admin users only
+
+/admin_users:
+
+  type:
+    collection:
+      resourcePathName: users
+      resourcePath: user
+
+  delete:
+    displayName: Delete user
+    responses:
+      200:
+        body:
+          application/json:
+            #type: userData
+            example: {message: "User deleted successfully!"}
+  is:
+    - myLib.responseMessage
+/admin_orders:
+  type:
+    collection:
+      resourcePathName: order
+      resourcePath: order
+
+  post:
+    responses:
+      201: 
+        body:
+          application/json:
+            #type: userData
+              example: !include examples/users.raml
+  put:
+    displayName: Update user
+    body:
+      application/json:
+        type: myLib.users
+        example: !include examples/user.raml
+    responses:
+      200:
+        body:
+          application/json:
+            #type: userData
+            example: {"User updated successfully!"}
+    is:
+      - myLib.responseMessage
+  delete:
+    displayName: Delete user
+    responses:
+      200:
+        body:
+          application/json:
+            #type: userData
+            example: {message: "User deleted successfully!"}
+  is:
+    - myLib.responseMessage
+
+resourceTypes:
+  collection: !include resources/adminResourceType.raml
+/admin_products:
+  
+  type:
+    collection:
+      resourcePathName: product
+      resourcePath: product
+  post:
+    responses:
+      201: 
+        body:
+          application/json:
+            #type: userData
+              example: !include examples/user.raml
+  put:
+    displayName: Update user
+    body:
+      application/json:
+        #type: myLib.user
+        example: !include examples/user.raml
+    responses:
+      200:
+        body:
+          application/json:
+            #type: userData
+            example: {"User updated successfully!"}
+    is:
+      - myLib.responseMessage
+  delete:
+    displayName: Delete user
+    responses:
+      200:
+        body:
+          application/json:
+            #type: userData
+            example: {message: "User deleted successfully!"}
+  is:
+    - myLib.responseMessage
+
+/admin_category:
+
+  type:
+    collection:
+      resourcePathName: Category
+      resourcePath: Category
+
+  post:
+    responses:
+      201: 
+        body:
+          application/json:
+            #type: userData
+              example: !include examples/users.raml
+  put:
+    displayName: Update user
+    body:
+      application/json:
+        #type: myLib.users
+        example: !include examples/user.raml
+    responses:
+      200:
+        body:
+          application/json:
+            #type: userData
+            example: {"User updated successfully!"}
+    is:
+      - myLib.responseMessage
+  delete:
+    displayName: Delete user
+    responses:
+      200:
+        body:
+          application/json:
+            #type: userData
+            example: {message: "User deleted successfully!"}
+  is:
+    - myLib.responseMessage
+
+

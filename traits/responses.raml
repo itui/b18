@@ -1,0 +1,45 @@
+#%RAML 1.0 Trait
+responses:
+  404:
+    body:
+      application/json:
+        example:
+          {
+            "message": "not found"
+          }
+  # 401:
+  #     body:
+  #       application/json:
+  #         example:
+  #           {
+  #             "message": "unauthorized access"
+  #           }
+  # 403:
+  #   description: authethentication error response
+  #   body:
+  #     application/json:
+  #       example:
+  #         error: invalid resource
+  #         description: invalid user/order/product/category
+  # 500:
+  #   description: error response for internal API error
+  #   body:
+  #     application/json:
+  #       example:
+  #         error: system-exception
+  #         description: invalid userid/orderid/catergoryid/productid
+
+# headers:
+#   userid:
+#     type: string
+#     required: true
+#   user_secret: 
+#     type: string
+#     required: true
+# queryParameters:
+#   user_unique_id:
+#     displayName: special id
+#     required: true
+
+
+
