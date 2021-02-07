@@ -1,0 +1,14 @@
+#%RAML 1.0 Library
+securitySchemes:
+  AuthSecurity: !include OautScheme.raml
+types:
+  usertype: !include User_Detail/userDetail.raml
+  producttype: !include Product_Details/Products_dataType.raml
+  orderstype: !include Order_Details/ordersDt.raml
+  Catagogytype: !include catagoryDetail/catagorgyDt.raml
+  orderPost:  !include Order_Details/post_order.raml
+  orderPostResponse: !include Order_Details/OR_dataType.raml
+resourceTypes:
+  productResource : !include Product_Resourcetype/product_resourceType.raml
+traits:
+  400response: !include trait.raml

@@ -1,0 +1,11 @@
+#%RAML 1.0 DataType
+description: This data type is for Payment details post method on orders resource
+properties:
+  card_type:
+    enum:
+      - VISA
+      - MASTER CARD
+      - AMERCAN EXPRESS
+  name: string
+  cardNumber: integer
+  expirationDate: date-only

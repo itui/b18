@@ -1,0 +1,13 @@
+#%RAML 1.0 SecurityScheme
+type: OAuth 2.0
+description: This API  supports OAUTH 
+describedBy:
+  headers:
+    Authorization: 
+      description: USER HAS TO SEND TOKEN VALUE
+      type: integer
+  responses:
+    401:
+      description: Unauthorized user
+    403:
+      description: Forbiden

@@ -1,0 +1,26 @@
+#%RAML 1.0 Extension
+extends: CraftSoftware_Shopping.raml
+usage: for admin user only
+
+/Admin:
+  delete:
+
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "msg": "user deleted"
+              }
+      401:
+        body:
+          application/json:
+            example:
+              {
+                "msg": "unauthorised"
+                             }
+
+
+
+

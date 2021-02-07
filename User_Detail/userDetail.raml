@@ -1,0 +1,30 @@
+#%RAML 1.0 DataType
+
+properties:
+  firstName :
+    required: true
+    type: string
+    maxLength: 30
+    minLength: 2
+  lastName :
+    required: true
+    type: string
+    maxLength: 30
+    minLength: 2
+  phone :
+    required: true
+    pattern: 202-234-8978
+  email:
+    type: string
+    required: false
+    maxLength: 20
+    minLength: 2
+  Address: 
+   type: !include userAddress.raml
+
+
+
+  
+    
+
+   

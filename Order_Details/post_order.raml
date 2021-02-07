@@ -1,0 +1,7 @@
+#%RAML 1.0 DataType
+description: This data type is post method for orders resource
+properties:
+  productName: string
+  numberOf_prod: integer
+  productid: integer
+  payment: !include order_payment.raml

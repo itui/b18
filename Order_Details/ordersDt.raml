@@ -1,0 +1,23 @@
+#%RAML 1.0 DataType
+description: This data type is for GET method  of orders resource
+properties:
+   orderid : 
+    type: integer
+   userid : 
+     type: integer
+   uaddressid : 
+     type: integer
+   discountid : 
+    type: integer
+   created : 
+     type: datetime-only
+   modified : 
+    type: datetime-only
+    required: false
+       
+   status : 
+     type: string
+   amount : 
+     type: integer
+     required: true
+

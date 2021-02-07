@@ -1,0 +1,101 @@
+#%RAML 1.0
+title: CarftSoftware_Shopping
+description: THIS RAML IS FOR CREATING PRODUCTS,USERS,ORDERS AND CATAGORIES RESOURCES FOR CRAFTSOFTWARE SHOPPING.
+documentation:
+   - !include documentation.raml
+uses: 
+   lib: library.raml  
+/products:
+  type: 
+    lib.productResource:
+      exampleRefence1:
+        !include Examples/producExample.raml  
+  is:
+      - lib.400response
+  /productId:
+    type:
+      lib.productResource:
+        exampleRefence1:
+          !include Examples/productIdexample.raml
+      is: 
+       - 400response
+/users:
+  post:
+    body:
+      application/json:
+        type: lib.usertype
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include Examples/uuiresponse_example.raml
+    is:
+      - lib.400response
+  type:
+    lib.productResource:
+      exampleRefence1:
+        !include Examples/userResponse.raml
+    is:
+      - 400response
+  /userId:
+    type:
+      lib.productResource:
+        exampleRefence1:
+          !include Examples/userIdExample.raml
+      is:
+      - 400response             
+/orders:
+  post:
+    body:
+      application/json:
+        type: lib.orderPost []
+        example: !include Examples/postorderexample.raml
+          
+    responses:
+      200:
+        body:
+          application/json:
+            type: lib.orderPostResponse
+            examples: !include Examples/postO_respons.raml
+    is:
+      - lib.400response   
+  type:
+    lib.productResource:
+      exampleRefence1:
+        !include Examples/Os_example.raml 
+    is:
+      - 400response
+  /orderid:  
+   type:
+     lib.productResource:
+       exampleRefence1:
+         !include Examples/O_example1.raml
+     is:
+      - 400response
+/catagories:
+  type:
+    lib.productResource:
+      exampleRefence1:
+        !include Examples/catsexample.raml
+    is:
+      - 400response
+  /catagoryid:
+    type:
+      lib.productResource:
+        exampleRefence1:
+          !include Examples/catexample.raml
+      is:
+      - 400response
+                
+              
+    
+      
+
+            
+    
+        
+    
+
+  
+
+    
