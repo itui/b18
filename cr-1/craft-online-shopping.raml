@@ -1,0 +1,122 @@
+#%RAML 1.0
+title: Craft-Online-Shopping
+version: 1.0.0
+
+documentation:
+  - !include documentation.raml
+uses:
+  mylib: library.raml
+/products:
+
+  type:
+    mylib.get_resType:
+      type: mylib.productDatatype []    
+      exampleReference1: 
+        !include Examples/products.raml 
+  is:
+    mylib.myCollections
+          
+  /{productId}:
+  
+    type:
+      mylib.get_resType:
+         type: mylib.productDatatype
+         exampleReference1:
+           !include Examples/productId.raml
+    is:
+      mylib.myCollections
+/users:
+  post:  
+    responses:
+      201:
+        description: user account created
+        body:
+          application/json:
+            example:
+              {
+                uid: 2
+              }
+  is:
+    - mylib.myCollections          
+ 
+  type:
+    mylib.get_resType:
+       type: mylib.userDatatype []
+       exampleReference1:
+         !include Examples/user.raml  
+    is:
+      - mylib.myCollections  
+    
+  /{userId}:
+  
+    type:
+      mylib.get_resType:
+        type: mylib.userDatatype
+        exampleReference1:
+          !include Examples/user.raml
+           
+    is:
+      mylib.myCollections
+              
+/orders:
+  type:
+    mylib.post_resType:
+      type: mylib.orderDatatype []
+      exampleReference1:
+        !include Examples/orders.raml
+  
+  is:
+   - mylib.myCollections
+ 
+  get:
+    responses:
+      200:
+       description: 
+       body:
+        application/json:
+          type: mylib.orderDatatype []
+          example: !include Examples/orders.raml 
+    is:
+      - mylib.myCollections
+     
+      
+  /{orderId}:
+    type:
+      mylib.get_resType:
+        type: mylib.orderDatatype
+        exampleReference1:
+          !include Examples/orderId.raml
+    is:
+       mylib.myCollections
+
+/categories:
+  type:
+    mylib.get_resType:
+      type: mylib.categoryDatatype []
+      exampleReference1: 
+       !include Examples/categories.raml
+  is:
+    mylib.myCollections
+  /{categoryId}:
+    type:
+      mylib.get_resType:
+        type: mylib.categoryDatatype
+        exampleReference1: 
+         !include Examples/categoryId.raml
+    is:
+      mylib.myCollections
+
+        
+    
+  
+  
+
+ 
+
+
+
+
+    
+    
+
+

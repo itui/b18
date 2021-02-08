@@ -1,0 +1,19 @@
+#%RAML 1.0 Library
+annotationTypes:
+  annotation: !include annotation.raml 
+usage: all list of lib
+types:
+  productDatatype: !include types/product.raml
+  userDatatype: !include types/user.raml
+  orderDatatype: !include types/order.raml
+  categoryDatatype: !include types/category.raml
+traits:
+  myCollections: !include traits/traits.raml
+resourceTypes:
+  get_resType: !include resourceTypes/get.raml
+  post_resType: !include resourceTypes/post.raml
+  put_resType: !include resourceTypes/put.raml
+  delete_resType: !include resourceTypes/delete.raml
+securitySchemes:
+  security: !include securityScheme.raml
+  

@@ -1,0 +1,21 @@
+#%RAML 1.0 AnnotationTypeDeclaration
+properties:
+  usage:
+    description: to understand the details about the API
+    default: get
+  controller:
+    properties:
+      protocol:
+        description: the api used HTTPS
+        default: HTTPS
+      url:
+        description: icraftsoft.net is the url for the rest api
+        default: href
+      MethodUsage?: 
+        description: can the user use all http methohds
+        type: boolean
+        default: false
+      AdminMethodUsage?: 
+        description: can the admin use all http methohds
+        type: boolean
+        default: true

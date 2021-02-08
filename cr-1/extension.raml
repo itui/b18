@@ -1,0 +1,114 @@
+#%RAML 1.0 Extension
+extends: craft-online-shopping.raml
+usage: for admin user only
+resourceTypes:
+  get_resorce: !include resourceTypes/getExt_resourceType.raml
+traits:
+  myResponse: !include traits/Ext_trait.raml
+  deleteResponse: !include traits/deletedExt_trait.raml
+
+
+/product:
+  description: admin product
+  type:
+    get_resorce:
+      exampleReference1: !include Examples/products.raml
+  is:
+    myResponse
+  put:
+    is:
+      myResponse
+           
+  delete:
+    is:
+      - deleteResponse
+  
+  post:
+    responses:
+      201:
+        body:
+          application/json:
+            type: mylib.orderDatatype
+            example: !include Examples/products.raml      
+/users:  
+  type:
+    get_resorce:
+      exampleReference1: !include Examples/user.raml 
+
+  delete:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+                {
+                  message: "user deleted"
+                }                                                      
+/orders: 
+  type:
+    get_resorce:
+      exampleReference1: !include Examples/orders.raml 
+
+  post:
+    responses:
+      201:
+        description: user account created
+        body:
+          application/json:
+            example:
+              {
+                orderid: 2
+              }              
+  put:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                message: "orders updated"
+              }             
+  delete:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+                {
+                  message: "orders deleted"
+                }                                                                     
+/categories: 
+  type:
+    get_resorce:
+      exampleReference1: !include Examples/categories.raml
+  post:
+    responses:
+      201:
+        description: user account created
+        body:
+          application/json:
+            example:
+              {
+                orderid: 2
+              }              
+  put:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                message: "orders updated"
+              }             
+  delete:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+                {
+                  message: "orders deleted"
+                }                                         
+                                         
+            
+           

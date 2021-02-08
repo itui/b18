@@ -1,0 +1,29 @@
+#%RAML 1.0 Trait
+responses:
+      401:
+         description: unauthorized user
+         body:
+          application/json:
+            example:
+              {
+                message: "you don't have the privilage"
+              }    
+      404:
+         description: 
+         body:
+          application/json:
+            example:
+              {
+                message: "resource not found"
+              }
+      500:
+        description: 
+        body:
+          application/json:
+            example:
+              {
+                message: "server failed"
+              }
+         
+          
+         
