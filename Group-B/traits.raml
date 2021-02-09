@@ -1,0 +1,27 @@
+#%RAML 1.0 Trait
+responses:
+  401:
+    description:
+    body:
+      application/json:
+        example:
+          {
+            "message": "unauthorized"
+          }
+  404:
+    body:
+      application/json:
+        example:
+          {
+            message: "resource not found",
+            "description": "Invalid input payload",
+            "datetime": "2021-02-07T12:01-00Z",
+            "transactionID": "f2488647-db6c-4054-8266-a993128cd264"
+          }
+  500:
+    body:
+      application/json:
+        example:
+          {
+            message: "server error"
+          }

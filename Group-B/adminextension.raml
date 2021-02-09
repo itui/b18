@@ -1,0 +1,44 @@
+#%RAML 1.0 Extension
+extends: Gruoup-B project.raml
+usage: for admin user only
+traits:
+  admin-id-required:
+    headers:
+      admin_id:
+        type: string
+      admin_secret:
+        type: string
+    is: [library.quotaReached, library.serverError, library.unauthorized]
+/adminproducts:
+  post:
+    is:
+      [lib.mytrait]
+  delete:
+    is:
+      [lib.mytrait]
+  patch:
+    is:
+      [lib.mytrait]
+  put:
+    is:
+      [lib.mytrait]
+  type:
+    lib.collection:
+      exampleReference: !include Examples/products.raml
+/admincategories:
+  post:
+    is:
+      [lib.mytrait]
+  delete:
+    is:
+      [lib.mytrait]
+  patch:
+    is:
+      [lib.mytrait]
+  put:
+    is:
+      [lib.mytrait]
+  type:
+    lib.collection:
+      exampleReference: !include Examples/categories.raml
+    

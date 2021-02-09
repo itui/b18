@@ -1,0 +1,80 @@
+#%RAML 1.0
+title: Gruoup-B project
+version: 1.0.1 
+baseUri: http://localhost8081:online-sapi/v1
+uses:
+  lib: library.raml
+documentation:
+  - !include documentation.raml
+/products:
+  get:
+  type:
+    lib.collection:
+      type: lib.pro []
+      exampleReference: !include Examples/products.raml 
+  is:
+    lib.mytrait   
+  /{productId}:
+    get:
+    type:
+      lib.collection:
+        type: lib.pro
+        exampleReference: !include Examples/productId.raml
+                     
+    is:
+      lib.mytrait
+/users:
+  get:
+  type:
+      lib.collection:
+        type: lib.users []
+        exampleReference: !include Examples/users_get_example.raml
+  post:
+    body:
+      application/json:
+        type: lib.users 
+        example: !include Examples/user_post_example.raml
+  is:
+    lib.mytrait
+/orders:
+  get:
+  type:
+    lib.collection:
+      type: lib.ord []
+      exampleReference: !include Examples/orders.raml
+  post:
+    body:
+      application/json:
+        type: lib.ord
+        example: !include Examples/order_post.raml
+  is:
+    lib.mytrait
+  /{orderId}:
+    get:
+      is:
+        - lib.mytrait
+    type:
+      lib.collection:
+        type: lib.ord
+        exampleReference: !include Examples/orderId.raml
+    put:
+      is:
+        - lib.mytrait
+    patch:
+      is:
+        - lib.mytrait
+    delete:
+      is:
+        - lib.mytrait                    
+/categories:
+  get:
+  type:
+    lib.collection:
+      type: lib.cat []
+      exampleReference: !include Examples/categories.raml
+  is:
+    lib.mytrait           
+       
+      
+    
+
