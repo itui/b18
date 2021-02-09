@@ -18,6 +18,7 @@ uses:
     description: This gets/retrieves users list
   type:
     myLib.get-collection:
+      type: myLib.userDataType []
       example-reference: 
         !include examples/usersExample.raml
   
@@ -28,6 +29,7 @@ uses:
       get:
       type:
         myLib.get-collection:
+          type: myLib.userDataType
           example-reference: 
             !include examples/user.raml
 
@@ -38,7 +40,7 @@ uses:
       201: 
         body:
           application/json:
-            example: !include examples/user.raml
+            example: !include examples/user-by-id-example.raml
 
     is: myLib.responseMessage
    
@@ -48,6 +50,7 @@ uses:
     
   type:
     myLib.get-collection:
+      type: myLib.productDataType []
       example-reference: 
         !include examples/productsExample.raml
        
@@ -59,6 +62,7 @@ uses:
       
     type:
       myLib.get-collection:
+        type: myLib.productDataType
         example-reference: 
           !include examples/productExample.raml
     
@@ -69,6 +73,7 @@ uses:
    
   type:
     myLib.get-collection:
+      type: myLib.orderDataType []
       example-reference: 
         !include examples/ordersExample.raml
   
@@ -78,7 +83,7 @@ uses:
       201: 
         body:
           application/json:
-            example: !include examples/orderExample.raml
+            example: !include examples/order-by-id-example.raml
 
   /{orderid}:
     get:
@@ -96,6 +101,7 @@ uses:
    
   type:
     myLib.get-collection:
+      type: myLib.categoryDataType []
       example-reference: 
         !include examples/categoriesExample.raml
     
@@ -106,6 +112,7 @@ uses:
       
     type:
       myLib.get-collection:
+        type: myLib.categoryDataType 
         example-reference: 
           !include examples/categoryExample.raml
        

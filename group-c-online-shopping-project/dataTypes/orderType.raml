@@ -1,7 +1,9 @@
 #%RAML 1.0 DataType
 type: object
 properties:
-  orderid: integer
+  orderid: 
+    type: integer
+    required: true
   userid: integer
   addressid: string
   discountid: integer
@@ -9,3 +11,4 @@ properties:
   modified: string
   status: string
   amount: integer
+  quantity: integer
