@@ -1,0 +1,12 @@
+#%RAML 1.0 Library
+traits:
+  mytrait: !include traits.raml 
+types:
+  pro: !include DataType/productsdataType.raml 
+  users: !include DataType/usersdataType.raml
+  ord: !include DataType/orderdataType.raml
+  cat: !include DataType/categoriesdataType.raml
+securitySchemes:
+  oathSecurity: !include securityScheme.raml
+resourceTypes:
+  collection: !include Resource/resourceType.raml

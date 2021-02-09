@@ -1,0 +1,48 @@
+#%RAML 1.0 ResourceType
+displayName: <<resourcePathName | uppercase>> 
+description: <<resourcePathName | uppercase>>
+get?:
+  description: GET <<resourcePathName>>
+  responses:
+    200:
+      body:
+        application/json:
+          example:
+            <<exampleReference>>
+post?:
+  description: POST <<resourcePathName>>
+  body:
+    application/json:
+      example:
+  responses:
+    200:
+      body:
+        application/json:
+          example:
+            message: Resource created!
+put?:
+  description: PUT <<resourcePathName>>
+  responses:
+    200:
+      body: 
+        application/json:
+          example: 
+            message: Resource modified
+
+patch?:
+  description: PATCH <<resourcePathName>>
+  responses:
+    200:
+      body:
+        application/json:
+          example:
+            message: Resource replaced
+delete?:
+  description: DELETE <<resourcePathName>>
+  responses:
+    200:
+      body:
+        application/json:
+          example:
+            message: Resource deleted 
+
